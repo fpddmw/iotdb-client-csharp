@@ -137,9 +137,9 @@ namespace Apache.IoTDB.Data
             {
                 throw new InvalidOperationException($"DataReaderClosed{nameof(Read)}");
             }
-            if (_dataSet.HasNext())
+            if (_dataSet.Next())
             {
-                rowdata = _dataSet.Next();
+                rowdata = _dataSet.GetRow();
             }
             else
             {
@@ -455,7 +455,7 @@ namespace Apache.IoTDB.Data
         /// <returns>A System.Data.DataTable that describes the column metadata.</returns>
         public override DataTable GetSchemaTable()
         {
-            if (_dataSet.HasNext())
+            if (_dataSet.Next())
             {
                 rowdata = _dataSet.Next();
             }

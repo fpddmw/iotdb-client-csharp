@@ -109,7 +109,6 @@ namespace Apache.IoTDB.DataStructure
         public IReadOnlyList<string> GetColumnTypes() => _rpcDataSet._columnTypeList;
 
         public int RowCount() => _rpcDataSet._tsBlockSize;
-
         public void ShowTableNames()
         {
             IReadOnlyList<string> columns = GetColumnNames();
@@ -132,7 +131,7 @@ namespace Apache.IoTDB.DataStructure
 
                 try
                 {
-                    var status = await _client.ServiceClient.closeOperationAsync(req);
+                    var status = await _client.ServiceClient.closeOperation(req);
                 }
                 catch (TException e)
                 {

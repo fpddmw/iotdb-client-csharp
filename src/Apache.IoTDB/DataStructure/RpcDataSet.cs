@@ -243,7 +243,6 @@ namespace Apache.IoTDB.DataStructure
             try
             {
                 var task = _client.ServiceClient.fetchResultsV2Async(req);
-
                 var resp = task.ConfigureAwait(false).GetAwaiter().GetResult();
 
                 if (!resp.HasResultSet)

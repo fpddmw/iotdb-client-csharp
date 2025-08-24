@@ -512,7 +512,7 @@ namespace Apache.IoTDB.Samples
 
             var res = await session_pool.ExecuteRawDataQuery(paths, 10, fetchSize * processedSize);
             var count = 0;
-            while (res.HasNext())
+            while (res.Next())
             {
                 count++;
             }
@@ -558,7 +558,7 @@ namespace Apache.IoTDB.Samples
 
             var res = await session_pool.ExecuteLastDataQueryAsync(paths, fetchSize * processedSize - 10);
             var count = 0;
-            while (res.HasNext())
+            while (res.Next())
             {
                 Console.WriteLine(count);
                 count++;
